@@ -7,13 +7,21 @@
 // 'src/pages/HomePage/HomePage.js'         -> HomePage
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
-import { Router, Route } from '@redwoodjs/router'
+import { Set, Router, Route } from '@redwoodjs/router'
+
+import HeaderfooterLayout from './layouts/HeaderfooterLayout/HeaderfooterLayout'
+
 
 const Routes = () => {
   return (
     <Router>
-      <Route path="/" page={HomePage} name="home" />
-      <Route notfound page={NotFoundPage} />
+      <Route path="/noveln" page={NovelnPage} name="noveln" />
+      {/* <Route path="/htmlintegration1" page={Htmlintegration1Page} name="htmlintegration1" /> */}
+      <Set wrap={HeaderfooterLayout}>
+        <Route path="/novel" page={NovelPage} name="novel" />
+        <Route path="/" page={HomePage} name="home" />
+        <Route notfound page={NotFoundPage} />
+      </Set>
     </Router>
   )
 }
